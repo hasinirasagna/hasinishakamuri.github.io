@@ -1,0 +1,675 @@
+/* ===============================
+   Global Reset + Typography
+================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 280px 1fr; /* sidebar + main */
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    background: #f8f9fa;
+    color: #222;
+    scroll-behavior: smooth;
+}
+
+/* ===============================
+   Sidebar
+================================= */
+.sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    background: #111;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 280px;
+    padding: 3rem 2rem;
+    z-index: 2;
+}
+
+.profile-pic img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #006666;
+    margin-bottom: 1rem;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.sidebar ul {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar li {
+    margin: 1.2rem 0;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #ccc;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    color: #006666;
+}
+
+.sidebar a.active i {
+    color: #006666;
+}
+
+.sidebar ul li a i {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 0.8rem;
+    justify-content: center;
+}
+
+.social-icons a {
+    color: #aaa;
+    font-size: 1.1rem;
+    transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #006666;
+}
+
+.sidebar-footer {
+    position: absolute;
+    bottom: 1rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #aaa;
+    line-height: 1.2;
+}
+
+.sidebar-footer p {
+    margin: 0.2rem 0;
+}
+
+/* ===============================
+   Main Content & Page Sections
+================================= */
+main {
+    padding: 0;
+    margin: 0;
+}
+
+.page-section {
+    margin-left: 0;       /* leave space for sidebar */
+    padding: 4rem 6rem;       /* top/right/bottom/left padding */
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Section spacing */
+.section {
+    margin-bottom: 4rem;
+}
+
+/* ===============================
+   Hero Section
+================================= */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    background: url("assets/images/bg.jpg") center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 4rem;
+    color: white;
+    width: 100%;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 0;
+}
+
+.hero * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.typed-text {
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #111;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #006666;
+}
+
+/* ===============================
+   Resume Page Styles
+================================= */
+
+/* Resume main section */
+.resume-section {
+    padding: 4rem 6rem;          /* same padding as Home/About */
+    min-height: 100vh;
+    background: #f8f9fa;
+    box-sizing: border-box;
+}
+
+/* Resume main heading */
+.resume-section h1 {
+    font-size: 2.5rem;           /* same as About page */
+    color: #000000;              /* black heading */
+    margin-bottom: 2rem;
+}
+
+/* Resume container: two columns with timeline */
+.resume-container {
+    display: flex;
+    gap: 4rem;                   /* space between left/right */
+    margin-top: 3rem;
+    position: relative;           /* for vertical timeline line */
+}
+
+/* Vertical timeline line in the middle */
+.resume-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: #ddd;
+    transform: translateX(-50%);
+}
+
+/* Columns inside resume */
+.resume-left,
+.resume-right {
+    width: 48%;
+    padding: 0 1rem;             /* inner spacing */
+}
+
+/* Section headings inside columns */
+.resume-left h2,
+.resume-right h2 {
+    color: #006666;              /* teal for section headings */
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+
+/* Paragraphs and lists inside columns */
+.resume-left p,
+.resume-right p,
+.resume-left ul li,
+.resume-right ul li {
+    line-height: 1.6;            /* tighter spacing between points */
+    margin-bottom: 0.6rem;
+    font-size: 1rem;
+    color: #222;                 /* darker text for better readability */
+}
+
+/* Custom bullets (dots) for timeline items */
+.resume-left ul li,
+.resume-right ul li {
+    position: relative;
+    padding-left: 2rem;          /* space for bullet */
+    margin-bottom: 0.8rem;       /* spacing between points */
+    list-style: none;            /* remove default bullets */
+}
+
+.resume-left ul li::before,
+.resume-right ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.7rem;                 /* vertically align with text */
+    width: 12px;                 /* slightly bigger dot */
+    height: 12px;
+    background: #006666;         /* teal dot */
+    border-radius: 50%;
+}
+
+/* Right column job/company headings */
+.resume-right h3 {
+    margin-bottom: 0.3rem;
+    color: #006666;
+    font-size: 1.2rem;
+}
+
+/* Right column job description paragraphs */
+.resume-right p {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+/* Download button spacing */
+.resume-download {
+    margin: 2rem 0 3rem 0;        /* top 2rem, bottom 3rem */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .resume-container {
+        flex-direction: column;   /* stack columns on mobile */
+        margin-top: 2rem;
+    }
+
+    .resume-container::before {
+        left: 2px;               /* vertical line on left for mobile */
+        top: 0;
+        bottom: 0;
+    }
+
+    .resume-left,
+    .resume-right {
+        width: 100%;
+        padding: 0;
+    }
+}
+/* ===============================
+   Portfolio Grid
+================================= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 6px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+/* ===============================
+   Personal Info Page
+================================= */
+.personal-section {
+    padding: 1rem 4rem 3rem 4rem;  /* same as about page for consistency */
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .personal-section h1 {
+    font-size: 2.5rem;
+    color: #000;        /* black heading */
+    margin-bottom: 2rem;
+  }
+  
+  .personal-section h2 {
+    font-size: 2rem;
+    color: #006666;
+    margin: 3rem 0 1.5rem 0;
+  }
+  
+  /* Grid for personal info cards */
+  .personal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .personal-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .personal-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .personal-card i {
+    font-size: 2rem;
+    color: #006666;
+    margin-bottom: 0.8rem;
+  }
+  
+  .personal-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .personal-card p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.4;
+  }
+  
+  .personal-card a {
+    color: #006666;
+    text-decoration: none;
+  }
+  
+  .personal-card a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Interests Grid */
+  .interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+  
+  .interest-card {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .interest-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .interest-card i {
+    font-size: 2rem;
+    color: #006666;
+    margin-bottom: 0.5rem;
+  }
+  
+  .interest-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .interest-card p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .interest-card a {
+    color: #006666;
+    text-decoration: none;
+  }
+  
+  .interest-card a:hover {
+    text-decoration: underline;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .personal-section {
+      padding: 3rem 2rem;
+    }
+  
+    .personal-grid, .interests-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+/* ===============================
+   Contact Section
+================================= */
+/* Contact Section */
+/* Contact Section */
+.contact-section {
+    padding: 1.5rem 2rem;
+    margin-left: 0;
+}
+
+.contact-section h1 {
+    font-size: 2.5rem;
+    color: #000;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+/* Contact option cards */
+.contact-options {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    justify-content: flex-start;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: #f1f1f1;
+    color: #111;
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.3s ease;
+    border: 1px solid #ddd;
+}
+
+.contact-card i {
+    font-size: 1.6rem;
+    color: #006666;
+}
+
+.contact-card:hover {
+    background: #e8f6f6;
+}
+
+.contact-card:focus,
+.contact-card:active {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Contact form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+}
+
+.contact-form label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.contact-form textarea {
+    resize: none;
+    min-height: 120px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #006666;
+}
+
+.contact-form button {
+    width: fit-content;
+    padding: 0.8rem 1.5rem;
+    background: #111;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #006666;
+}
+/* ===============================
+   About Page
+================================= */
+.about-section {
+    padding: 4rem 6rem;
+}
+
+.about-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #000000;
+}
+
+.about-summary {
+    max-width: 900px;
+    margin-bottom: 4rem;
+    line-height: 1.8;
+    font-size: 1.15rem;
+}
+
+.highlight {
+    color: #006666;
+    font-weight: 600;
+}
+
+.about-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.about-card {
+    background: #111;
+    color: #fff;
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+}
+
+.about-card i {
+    font-size: 2.2rem;
+    color: #006666;
+    margin-bottom: 1rem;
+}
+
+.about-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.about-card p {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #ccc;
+}
+
+/* ===============================
+   Responsive
+================================= */
+@media (max-width: 1024px) {
+    body {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        flex-direction: row;
+        height: auto;
+        justify-content: space-between;
+        padding: 1.5rem 2rem;
+    }
+
+    .sidebar ul {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    /* All main content sections take full width */
+    .page-section {
+        margin-left: 0;
+        padding: 2rem;
+    }
+
+    .resume-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
